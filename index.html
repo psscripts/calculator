@@ -1,0 +1,126 @@
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    h1 {  
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-family: Arial;
+      font-weight: bold;
+    }
+    #resultado{
+      background-color: #fff;
+      width: 100%;
+      font-size: 20px;
+      color: black;
+      text-align: right;
+      border-radius: 2px;
+      padding: 5px 2px;
+    }
+    .fundo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      background-image: linear-gradient(45deg,black,crimson);
+      font-family: Arial;
+    }
+    .calculadora{
+      background-color: black;
+      color: white;
+      border-radius: 15px;
+      padding: 15px;
+    }
+    .ty{
+      width: 50px;
+      height: 50px;
+      margin: 3px;
+      font-size: 20px;
+      cursor: pointer;
+      background-color: rgb(31,31,31);
+      color: #fff;
+      border-radius: 10%;
+    }
+    .ty:hover{
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="fundo">
+    <h1>Alison Araújo</h1>
+    <div class="calculadora">
+      <h2>calculadora</h1>
+      <p id="resultado"></p>
+      <table>
+        <tr>
+          <td><button class="ty" onclick="clean()">C</button</td>
+          <td><button class="ty" onclick="back()"><</button</td>
+          <td><button class="ty" onclick="insert('/')">/</button</td>
+          <td><button class="ty" onclick="insert('*')">X</button</td>
+        </tr>
+        <tr>
+          <td><button class="ty" onclick="insert('1')">1</button</td>
+          <td><button class="ty" onclick="insert('2')">2</button</td>
+          <td><button class="ty" onclick="insert('3')">3</button</td>
+          <td><button class="ty" onclick="insert('-')">-</button</td>
+        </tr>
+        <tr>
+          <td><button class="ty" onclick="insert('4')">4</button</td>
+          <td><button class="ty" onclick="insert('5')">5</button</td>
+          <td><button class="ty" onclick="insert('6')">6</button</td>
+          <td><button class="ty" onclick="insert('+')">+</button</td>
+        </tr>
+        <tr>
+          <td><button class="ty" onclick="insert('7')">7</button</td>
+          <td><button class="ty" onclick="insert('8')">8</button</td>
+          <td><button class="ty" onclick="insert('9')">9</button</td>
+          <td rowspan="2">
+            <button class="ty" style="height: 106px;" onclick="calcular()">=</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><button class="ty" style="width: 106px;" onclick="insert('0')">0</button></td>
+          <td><button class="ty" onclick="insert('.')">.</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+ 
+  
+  <script>
+    function insert(num) {
+      var numero = document.getElementById("resultado").innerHTML;
+      document.getElementById("resultado").innerHTML = numero + num;
+    }
+    function clean()
+    {
+      document.getElementById("resultado").innerHTML = "";
+      
+    }
+    function back()
+    {
+      var resultado = document.getElementById("resultado").innerHTML;
+      document.getElementById("resultado").innerHTML = resultado.substring(0, resultado.length -1);
+    }
+    
+    function calcular()
+    {
+      var resultado = document.getElementById("resultado").innerHTML;
+      document.getElementById("resultado").innerHTML = eval(resultado);
+    }
+    
+    
+  </script>
+</body>
+</html>
